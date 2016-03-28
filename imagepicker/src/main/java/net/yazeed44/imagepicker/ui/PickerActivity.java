@@ -46,7 +46,7 @@ public class PickerActivity extends AppCompatActivity {
 
     public static final String KEY_ACTION_BAR_TITLE = "actionBarKey";
     public static final String KEY_SHOULD_SHOW_ACTIONBAR_UP = "shouldShowUpKey";
-    public static final String CAPTURED_IMAGES_ALBUM_NAME = "captured_images";
+    public static final String CAPTURED_IMAGES_ALBUM_NAME = "Goers";
     public static final String CAPTURED_IMAGES_DIR = Environment.getExternalStoragePublicDirectory(CAPTURED_IMAGES_ALBUM_NAME).getAbsolutePath();
     private static final int REQUEST_PORTRAIT_RFC = 1337;
     private static final int REQUEST_PORTRAIT_FFC = REQUEST_PORTRAIT_RFC + 1;
@@ -128,11 +128,11 @@ public class PickerActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             mShouldShowUp = mPickOptions.backBtnInMainActivity;
-            getSupportActionBar().setDisplayHomeAsUpEnabled(mPickOptions.backBtnInMainActivity);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(R.string.albums_title);
         } else {
             mShouldShowUp = savedInstanceState.getBoolean(KEY_SHOULD_SHOW_ACTIONBAR_UP);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(mShouldShowUp && mPickOptions.backBtnInMainActivity);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(savedInstanceState.getString(KEY_ACTION_BAR_TITLE));
 
 
@@ -468,7 +468,7 @@ public class PickerActivity extends AppCompatActivity {
             getSupportFragmentManager().popBackStack();
             getSupportActionBar().setTitle(R.string.albums_title);
             mShouldShowUp = mPickOptions.backBtnInMainActivity;
-            getSupportActionBar().setDisplayHomeAsUpEnabled(mShouldShowUp);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             hideSelectAll();
             hideDeselectAll();
 
@@ -607,7 +607,7 @@ public class PickerActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle(albumEvent.albumEntry.name);
         mShouldShowUp = true;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(mShouldShowUp);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         showSelectAll();
 
         if (shouldShowDeselectAll()) {
